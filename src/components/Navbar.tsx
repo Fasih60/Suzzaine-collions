@@ -33,13 +33,13 @@ const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 w-full overflow-x-hidden z-50 transition-all duration-300",
         (scrolled || !isHome || isOpen)
           ? "bg-primary shadow-lg"
           : "bg-primary/80 backdrop-blur-md"
       )}
     >
-      <div className="container mx-auto px-4 lg:px-8">
+      <div className="w-full max-w-screen-xl mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           <Link
             to="/"
@@ -97,7 +97,7 @@ const Navbar = () => {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-primary border-t border-primary-foreground/10 shadow-xl"
           >
-            <div className="container mx-auto px-4 py-4 flex flex-col gap-2">
+            <div className="w-full max-w-screen-xl mx-auto px-4 py-4 flex flex-col gap-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.to}
