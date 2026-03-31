@@ -34,7 +34,7 @@ const Navbar = () => {
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        (scrolled || !isHome)
+        (scrolled || !isHome || isOpen)
           ? "bg-primary shadow-lg"
           : "bg-primary/80 backdrop-blur-md"
       )}
@@ -102,6 +102,7 @@ const Navbar = () => {
                 <Link
                   key={link.to}
                   to={link.to}
+                  onClick={() => setIsOpen(false)}
                   className={cn(
                     "px-4 py-3 rounded-md text-sm font-medium transition-all duration-200",
                     location.pathname === link.to

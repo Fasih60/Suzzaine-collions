@@ -11,11 +11,11 @@ const Hero = () => {
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black">
       {/* Background with Dark Forest + Gradient */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <img
           src={heroBg}
           alt=""
-          className="w-full h-full object-cover opacity-50 mix-blend-overlay"
+          className="w-full h-full object-cover origin-bottom scale-[1.15] opacity-50 mix-blend-overlay"
         />
         {/* Gradient overlay: dark green -> transparent */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a2e1d] via-[#0a2e1d]/80 to-transparent" />
@@ -74,7 +74,7 @@ const Hero = () => {
 
           {/* Main front image */}
           <motion.div
-            className="absolute z-30 w-[180px] md:w-[240px] lg:w-[280px] shadow-2xl rounded-xl overflow-hidden border border-white/10"
+            className="absolute z-30 w-[150px] sm:w-[180px] md:w-[240px] lg:w-[280px] shadow-2xl rounded-xl overflow-hidden border border-white/10"
             initial={{ opacity: 0, scale: 0.9, y: 0 }}
             animate={{
               opacity: 1,
@@ -98,7 +98,7 @@ const Hero = () => {
 
           {/* Left background image */}
           <motion.div
-            className="absolute z-20 w-[140px] md:w-[180px] lg:w-[220px] shadow-xl rounded-xl overflow-hidden border border-white/5 -left-4 sm:left-4 md:left-[10%] top-[10%] opacity-80 backdrop-blur-sm hidden sm:block"
+            className="absolute z-20 w-[110px] sm:w-[140px] md:w-[180px] lg:w-[220px] shadow-xl rounded-xl overflow-hidden border border-white/5 left-0 sm:left-4 md:left-[10%] top-[10%] opacity-80 backdrop-blur-sm"
             initial={{ opacity: 0, x: -30, y: 10 }}
             animate={{
               opacity: 0.8,
@@ -122,7 +122,7 @@ const Hero = () => {
 
           {/* Right background image */}
           <motion.div
-            className="absolute z-10 w-[120px] md:w-[160px] lg:w-[200px] shadow-xl rounded-xl overflow-hidden border border-white/5 -right-4 md:right-[5%] bottom-[5%] lg:bottom-[10%] opacity-60 backdrop-blur-md hidden sm:block"
+            className="absolute z-10 w-[90px] sm:w-[120px] md:w-[160px] lg:w-[200px] shadow-xl rounded-xl overflow-hidden border border-white/5 right-0 sm:-right-4 md:right-[5%] bottom-[5%] lg:bottom-[10%] opacity-60 backdrop-blur-md"
             initial={{ opacity: 0, x: 30, y: -10 }}
             animate={{
               opacity: 0.6,
