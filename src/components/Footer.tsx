@@ -67,10 +67,10 @@ const Footer = () => {
               This website is a student academic project created for Human Computer Interaction and Graphic Design coursework. All copyrights, trademarks, book titles, and related content belong to Suzanne Collins and respective copyright owners. This project is non-commercial and made purely for educational purposes.
             </p>
             <p className="text-primary-foreground/80 text-sm font-medium">
-              Designed & Developed by [Student Names]
+              Designed & Developed by [Fasih Ur Rehman & Abdullah Tanveer]
             </p>
             <p className="text-primary-foreground/50 text-xs mt-1">
-              [University Name] | Department of Computer Science | Academic Year 2026
+              [University Of Gujrat] | Department of Computer Science | Academic Year 2026
             </p>
           </div>
           

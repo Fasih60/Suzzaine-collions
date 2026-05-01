@@ -94,20 +94,6 @@ const BookCard = ({ book, index = 0 }: BookCardProps) => {
               <span>{book.rating > 0 ? book.rating : "N/A"}</span>
             </div>
           </div>
-          
-          {/* Reading Progress Tracker */}
-          <div className="mt-auto pt-4 border-t border-border">
-            <div className="flex justify-between text-xs text-muted-foreground mb-2">
-              <span>Reading Progress</span>
-              <span>{progress}%</span>
-            </div>
-            <div className="w-full bg-secondary rounded-full h-1.5">
-              <div 
-                className="bg-accent h-1.5 rounded-full transition-all duration-1000 ease-out" 
-                style={{ width: `${progress}%` }}
-              ></div>
-            </div>
-          </div>
         </div>
       </div>
     </motion.div>
