@@ -1,9 +1,9 @@
-
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, BookOpen } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -19,6 +19,13 @@ const Navbar = () => {
   const location = useLocation();
 
   const isHome = location.pathname === "/";
+  const { scrollYProgress } = useScroll();
+
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -31,43 +38,61 @@ const Navbar = () => {
   }, [location.pathname]);
 
   return (
-    <nav
-      className={cn(
-        "fixed top-0 left-0 right-0 w-full overflow-x-hidden z-50 transition-all duration-300",
-        (scrolled || !isHome || isOpen)
-          ? "bg-primary shadow-lg"
-          : "bg-primary/80 backdrop-blur-md"
-      )}
-    >
-      <div className="w-full max-w-screen-xl mx-auto px-4 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
-          <Link
-            to="/"
-            className="flex items-center gap-2 text-primary-foreground"
-          >
-            <BookOpen className="w-6 h-6 text-accent" />
-            <span className="font-serif text-xl lg:text-2xl font-bold tracking-wide">
-              Suzanne Collins
-            </span>
-          </Link>
+<nav
+  className={cn(
+    "fixed top-4 left-1/2 -translate-x-1/2 z-50",
+    "w-[92%] max-w-5xl",
 
-          {/* Desktop nav */}
+    // Glass morphism capsule
+    "backdrop-blur-2xl bg-black/30 border border-white/20",
+
+    // Shape
+    "rounded-full shadow-2xl",
+
+    // smooth transitions
+    "transition-all duration-300",
+
+    scrolled || !isHome || isOpen
+      ? "bg-black/60 shadow-black/40"
+      : "bg-black/30"
+  )}
+>
+
+
+      <div className="relative w-full max-w-screen-xl mx-auto px-4 lg:px-8">
+        <div className="flex items-center justify-between h-16 lg:h-20">
+
+          {/* Logo */}
+<Link to="/" className="flex items-center gap-2 text-white group">
+  <img
+    src={logo}
+    alt="Logo"
+    className="h-18 w-18 md:h-24 md:w-24 object-contain drop-shadow-md"
+  />
+
+<span className="font-serif text-sm md:text-base font-bold tracking-wide">
+  Suzanne Collins
+</span>
+</Link>
+
+          {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
                 className={cn(
-                  "relative px-4 py-2 text-sm font-medium transition-colors group",
+                  "relative px-4 py-2 text-sm font-medium transition-all group",
                   location.pathname === link.to
-                    ? "text-accent"
-                    : "text-primary-foreground/80 hover:text-accent"
+                    ? "text-emerald-300"
+                    : "text-white/70 hover:text-white"
                 )}
               >
                 {link.label}
+
                 <span
                   className={cn(
-                    "absolute left-0 bottom-0 w-full h-0.5 bg-accent scale-x-0 transition-transform origin-left duration-300",
+                    "absolute left-0 bottom-0 w-full h-[2px] bg-emerald-400 scale-x-0 transition-transform origin-left duration-300",
                     location.pathname === link.to
                       ? "scale-x-100"
                       : "group-hover:scale-x-100"
@@ -77,37 +102,38 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Mobile toggle */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-primary-foreground p-2 hover:bg-primary-foreground/10 rounded-md transition-colors"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile */}
+          <div className="flex items-center gap-2 md:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-white p-2 hover:bg-white/10 rounded-md transition"
+            >
+              {isOpen ? <X /> : <Menu />}
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu Glass */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-primary border-t border-primary-foreground/10 shadow-xl"
+            className="md:hidden backdrop-blur-xl bg-black/70 border-t border-white/10"
           >
-            <div className="w-full max-w-screen-xl mx-auto px-4 py-4 flex flex-col gap-2">
+            <div className="px-4 py-4 flex flex-col gap-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
                   onClick={() => setIsOpen(false)}
                   className={cn(
-                    "px-4 py-3 rounded-md text-sm font-medium transition-all duration-200",
+                    "px-4 py-3 rounded-md text-sm font-medium transition",
                     location.pathname === link.to
-                      ? "text-accent bg-primary-foreground/10 translate-x-1"
-                      : "text-primary-foreground/80 hover:text-accent hover:bg-primary-foreground/5"
+                      ? "text-emerald-300 bg-white/5"
+                      : "text-white/70 hover:text-white hover:bg-white/5"
                   )}
                 >
                   {link.label}
@@ -117,6 +143,8 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+
     </nav>
   );
 };

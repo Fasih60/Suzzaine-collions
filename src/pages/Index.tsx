@@ -3,9 +3,11 @@ import { motion } from "framer-motion";
 import Hero from "@/components/Hero";
 import SectionHeading from "@/components/SectionHeading";
 import BookCard from "@/components/BookCard";
+import CharacterCards from "@/components/CharacterCards";
+import QuoteCarousel from "@/components/QuoteCarousel";
 import { books, newsItems } from "@/data/books";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Award, Star, TrendingUp } from "lucide-react";
+import { ArrowRight, Award, Star, TrendingUp, BookOpen, Users } from "lucide-react";
 import authorImg from "@/assets/author-portrait.jpg";
 
 const featuredBooks = books.slice(0, 4);
@@ -36,6 +38,8 @@ const Index = () => {
           </div>
         </div>
       </section>
+      <CharacterCards />
+      <QuoteCarousel />
 
       {/* Author Spotlight */}
       <section className="py-20 lg:py-28 bg-secondary">

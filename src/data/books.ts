@@ -14,6 +14,10 @@ export interface Book {
   cover: string;
   description: string;
   quote?: string;
+  genre: string[];
+  characters: { name: string; description: string }[];
+  facts: string[];
+  rating: number;
 }
 
 export const books: Book[] = [
@@ -26,7 +30,19 @@ export const books: Book[] = [
     cover: hungerGamesImg,
     description:
       "In a dystopian future, sixteen-year-old Katniss Everdeen volunteers to take her sister's place in a televised fight to the death.",
-    quote: "A superb opening salvo in a trilogy.",
+    quote: "May the odds be ever in your favor.",
+    genre: ["Dystopian", "Science Fiction", "Young Adult", "Action"],
+    characters: [
+      { name: "Katniss Everdeen", description: "The resourceful and pragmatic tribute from District 12." },
+      { name: "Peeta Mellark", description: "The baker's son and the male tribute from District 12." },
+      { name: "Haymitch Abernathy", description: "The cynical and drunken mentor to District 12's tributes." }
+    ],
+    facts: [
+      "Inspired by the myth of Theseus and the Minotaur.",
+      "Spent over 100 consecutive weeks on the New York Times bestseller list.",
+      "The Mockingjay pin originally belonged to Madge Undersee in the book."
+    ],
+    rating: 4.8,
   },
   {
     id: "catching-fire",
@@ -37,7 +53,19 @@ export const books: Book[] = [
     cover: catchingFireImg,
     description:
       "Katniss and Peeta's victory sparks a rebellion as they face a terrifying new arena in the Quarter Quell.",
-    quote: "Suspenseful, powerful, and unforgettable.",
+    quote: "Remember who the real enemy is.",
+    genre: ["Dystopian", "Science Fiction", "Young Adult", "Action"],
+    characters: [
+      { name: "Finnick Odair", description: "A charismatic previous victor from District 4." },
+      { name: "Johanna Mason", description: "A fierce and angry victor from District 7." },
+      { name: "President Snow", description: "The ruthless, tyrannical leader of Panem." }
+    ],
+    facts: [
+      "Introduced the concept of the Quarter Quell, a special Hunger Games every 25 years.",
+      "The arena was designed like a clock face with a new terror every hour.",
+      "Won the Children's Choice Book Award for Teen Choice Book of the Year."
+    ],
+    rating: 4.9,
   },
   {
     id: "mockingjay",
@@ -48,19 +76,42 @@ export const books: Book[] = [
     cover: mockingjayImg,
     description:
       "Katniss becomes the symbol of a revolution and must decide the future of an entire nation.",
-    quote: "A fitting end to an electrifying trilogy.",
+    quote: "It takes ten times as long to put yourself back together as it does to fall apart.",
+    genre: ["Dystopian", "Science Fiction", "Young Adult", "War"],
+    characters: [
+      { name: "President Coin", description: "The calculating leader of District 13's rebellion." },
+      { name: "Gale Hawthorne", description: "Katniss's best friend and a fierce rebel soldier." },
+      { name: "Primrose Everdeen", description: "Katniss's gentle and compassionate younger sister." }
+    ],
+    facts: [
+      "Explores the realities of war and the effects of trauma.",
+      "The book's ending was highly controversial among fans.",
+      "Sold over 450,000 copies in its first week of release."
+    ],
+    rating: 4.6,
   },
   {
     id: "ballad-of-songbirds",
     title: "The Ballad of Songbirds and Snakes",
     series: "The Hunger Games",
     seriesNumber: 0,
-
     year: 2020,
     cover: balladImg,
     description:
       "A prequel set decades before the original trilogy, exploring the origins of a young Coriolanus Snow.",
-    quote: "A gripping, dark origin story.",
+    quote: "Snow lands on top.",
+    genre: ["Dystopian", "Science Fiction", "Young Adult", "Psychological"],
+    characters: [
+      { name: "Coriolanus Snow", description: "An ambitious 18-year-old seeking to restore his family's honor." },
+      { name: "Lucy Gray Baird", description: "The charismatic, musically talented tribute from District 12." },
+      { name: "Sejanus Plinth", description: "A wealthy Capitol citizen who sympathizes with the districts." }
+    ],
+    facts: [
+      "Set during the 10th Hunger Games, 64 years before Katniss's story.",
+      "Reveals the origin of the Hanging Tree song.",
+      "Explores the philosophical justifications for the Hunger Games."
+    ],
+    rating: 4.5,
   },
   {
     id: "sunrise-reaping",
@@ -71,6 +122,16 @@ export const books: Book[] = [
     cover: sunriseImg,
     description:
       "The highly anticipated new novel set in the world of Panem, revealing untold stories from decades past.",
+    genre: ["Dystopian", "Science Fiction", "Young Adult"],
+    characters: [
+      { name: "Haymitch Abernathy", description: "The protagonist, participating in the 50th Hunger Games." }
+    ],
+    facts: [
+      "Focuses on the Second Quarter Quell.",
+      "Announced by Suzanne Collins as an exploration of propaganda and narrative control.",
+      "A film adaptation was announced alongside the book."
+    ],
+    rating: 0,
   },
   {
     id: "gregor-overland",
@@ -81,7 +142,19 @@ export const books: Book[] = [
     cover: gregorImg,
     description:
       "When eleven-year-old Gregor falls through a grate in his basement, he discovers a hidden underground world filled with extraordinary creatures.",
-    quote: "An unforgettable adventure beneath New York City.",
+    quote: "You have to be a little crazy to be a warrior.",
+    genre: ["Fantasy", "Children's Literature", "Adventure"],
+    characters: [
+      { name: "Gregor", description: "An 11-year-old boy who becomes the 'Warrior' of a prophecy." },
+      { name: "Boots", description: "Gregor's toddler sister, revered as the 'Princess'." },
+      { name: "Ares", description: "A giant black bat who bonds with Gregor." }
+    ],
+    facts: [
+      "Inspired by Collins thinking about Alice in Wonderland set in an urban environment like a manhole.",
+      "The series features giant talking bats, cockroaches, spiders, and rats.",
+      "Explores themes of war and biological warfare for a younger audience."
+    ],
+    rating: 4.7,
   },
 ];
 

@@ -53,52 +53,6 @@
     --forest-dark: 150 25% 12%;
     --forest-light: 150 20% 30%;
   }
-
-  .dark {
-    --background: 150 20% 6%;
-    --foreground: 40 33% 96%;
-
-    --card: 150 20% 9%;
-    --card-foreground: 40 33% 96%;
-
-    --popover: 150 20% 9%;
-    --popover-foreground: 40 33% 96%;
-
-    --primary: 42 78% 55%;
-    --primary-foreground: 150 30% 10%;
-
-    --secondary: 150 15% 15%;
-    --secondary-foreground: 40 33% 96%;
-
-    --muted: 150 15% 15%;
-    --muted-foreground: 40 15% 60%;
-
-    --accent: 42 78% 55%;
-    --accent-foreground: 150 30% 10%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 150 15% 18%;
-    --input: 150 15% 18%;
-    --ring: 42 78% 55%;
-
-    --sidebar-background: 150 20% 5%;
-    --sidebar-foreground: 40 33% 96%;
-    --sidebar-primary: 42 78% 55%;
-    --sidebar-primary-foreground: 150 30% 10%;
-    --sidebar-accent: 150 15% 12%;
-    --sidebar-accent-foreground: 40 33% 96%;
-    --sidebar-border: 150 15% 15%;
-    --sidebar-ring: 42 78% 55%;
-
-    --gold: 42 78% 55%;
-    --gold-foreground: 150 30% 10%;
-    --cream: 40 20% 90%;
-    --forest: 150 30% 30%;
-    --forest-dark: 150 25% 8%;
-    --forest-light: 150 20% 45%;
-  }
 }
 
 @layer base {
@@ -115,4 +69,19 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
 }
