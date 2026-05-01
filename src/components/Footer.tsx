@@ -8,20 +8,17 @@ const Footer = () => {
   return (
     <footer className="bg-gradient-to-b from-green-950 via-emerald-950 to-black text-primary-foreground">
       <div className="container mx-auto px-4 lg:px-8 py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-          <div>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 lg:gap-12">
+          <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-3 mb-5">
- <div className="flex items-center gap-3 mb-5">
-  <img
-    src={logo}
-    alt="Logo"
-    className="h-10 w-10 md:h-12 md:w-12 object-contain drop-shadow-md"
-  />
-
-  <span className="font-serif text-lg md:text-xl font-bold">
-    Suzanne Collins
-  </span>
-</div>
+              <img
+                src={logo}
+                alt="Logo"
+                className="h-10 w-10 md:h-12 md:w-12 object-contain drop-shadow-md"
+              />
+              <span className="font-serif text-lg md:text-xl font-bold">
+                Suzanne Collins
+              </span>
             </div>
             <p className="text-primary-foreground/60 text-sm leading-relaxed">
               Author of The Hunger Games trilogy, The Underland Chronicles, and more. 
