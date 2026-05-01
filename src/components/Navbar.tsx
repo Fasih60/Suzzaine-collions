@@ -63,16 +63,16 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
 
           {/* Logo */}
-<Link to="/" className="flex items-center gap-2 text-white group">
+<Link to="/" className="flex items-center gap-3 text-white group">
   <img
     src={logo}
     alt="Logo"
-    className="h-18 w-18 md:h-24 md:w-24 object-contain drop-shadow-md"
+    className="h-10 w-10 md:h-12 md:w-12 object-contain drop-shadow-md"
   />
 
-<span className="font-serif text-sm md:text-base font-bold tracking-wide">
-  Suzanne Collins
-</span>
+  <span className="font-serif text-lg md:text-xl font-bold tracking-wide">
+    Suzanne Collins
+  </span>
 </Link>
 
           {/* Desktop Nav */}
