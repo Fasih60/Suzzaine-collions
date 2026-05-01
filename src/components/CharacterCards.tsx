@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { books } from "@/data/books";
+
 import SectionHeading from "./SectionHeading";
 
 const CharacterCards = () => {

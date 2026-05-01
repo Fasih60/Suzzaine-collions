@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Search } from "lucide-react";
 import BookCard from "@/components/BookCard";
@@ -8,17 +8,9 @@ import { cn } from "@/lib/utils";
 const Books = () => {
   const [activeSeries, setActiveSeries] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
-  const [activeGenre, setActiveGenre] = useState("All");
-
-  const allGenres = useMemo(() => {
-    const genres = new Set<string>();
-    books.forEach((b) => b.genre.forEach((g) => genres.add(g)));
-    return ["All", ...Array.from(genres).sort()];
-  }, []);
 
   const filtered = books.filter((book) => {
     const matchesSeries = activeSeries === "All" || book.series === activeSeries;
-    const matchesGenre = activeGenre === "All" || book.genre.includes(activeGenre);
 
     const searchLower = searchQuery.toLowerCase();
 
@@ -30,7 +22,7 @@ const Books = () => {
         c.name.toLowerCase().includes(searchLower)
       );
 
-    return matchesSeries && matchesGenre && matchesSearch;
+    return matchesSeries && matchesSearch;
   });
 
   return (
@@ -83,25 +75,6 @@ const Books = () => {
               />
             </div>
 
-            {/* Genre */}
-            <div className="flex items-center gap-3">
-              <span className="text-sm font-medium text-muted-foreground">
-                Genre:
-              </span>
-
-              <select
-                className="bg-card border border-border text-foreground text-sm rounded-full focus:ring-accent focus:border-accent block p-2 px-4 shadow-sm"
-                value={activeGenre}
-                onChange={(e) => setActiveGenre(e.target.value)}
-              >
-                {allGenres.map((genre) => (
-                  <option key={genre} value={genre}>
-                    {genre}
-                  </option>
-                ))}
-              </select>
-            </div>
-
           </div>
 
           {/* SERIES TABS */}
@@ -141,7 +114,6 @@ const Books = () => {
                 onClick={() => {
                   setSearchQuery("");
                   setActiveSeries("All");
-                  setActiveGenre("All");
                 }}
                 className="mt-4 text-accent hover:underline"
               >

@@ -7,7 +7,7 @@ import CharacterCards from "@/components/CharacterCards";
 import QuoteCarousel from "@/components/QuoteCarousel";
 import { books, newsItems } from "@/data/books";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Award, Star, TrendingUp, BookOpen, Users } from "lucide-react";
+import { ArrowRight, Award, Star, TrendingUp } from "lucide-react";
 import authorImg from "@/assets/author-portrait.jpg";
 
 const featuredBooks = books.slice(0, 4);
