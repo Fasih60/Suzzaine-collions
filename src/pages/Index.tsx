@@ -14,7 +14,7 @@ const featuredBooks = books.slice(0, 4);
 
 const Index = () => {
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Hero />
 
       {/* Selected Works */}
@@ -156,7 +156,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 
